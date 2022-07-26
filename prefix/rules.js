@@ -10,19 +10,21 @@ module.exports = {
                 new MessageButton()
 	        .setCustomId('primary')
 	        .setLabel('Annoucements Ping')
-	        .setStyle('DANGER'),
+	        .setStyle('DANGER')
+			.setEmoji('873139803846242314'),
 
           new MessageButton()
 	        .setCustomId('second')
 	        .setLabel('Updates Ping')
-	        .setStyle('PRIMARY'),
+	        .setStyle('PRIMARY')
+			.setEmoji('783635099626504202'),
 
           new MessageButton()
 	        .setCustomId('third')
 	        .setLabel('Giveaway Ping')
 	        .setStyle('SUCCESS')
-			);
-
+			.setEmoji('851126325124530187'),
+			)
 
 		const embed = new MessageEmbed()
 			.setColor(0x0099FF)
