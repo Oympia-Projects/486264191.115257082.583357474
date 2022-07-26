@@ -147,13 +147,13 @@ client.on('interactionCreate', interaction => {
 
 		const member = interaction.member;
 
-		if (member.roles.cache.has('996476176728072342')) {
-			member.roles.remove('996476176728072342');
+		if (member.roles.cache.has('1001607762444304506')) {
+			member.roles.remove('1001607762444304506');
 
-			return interaction.reply({ content: `❌ Removed the <@&996476176728072342> role from you `, ephemeral: true,})
+			return interaction.reply({ content: `❌ Removed the <@&1001607762444304506> role from you `, ephemeral: true,})
 		} else {
-			member.roles.add('996476176728072342');
-			return interaction.reply({ content: ' ✅ Granted you the <@&996476176728072342> role ', ephemeral: true,})
+			member.roles.add('1001607762444304506');
+			return interaction.reply({ content: ' ✅ Granted you the <@&1001607762444304506> role ', ephemeral: true,})
 		}
 	}
   });
@@ -164,13 +164,13 @@ client.on('interactionCreate', interaction => {
 
 		const member = interaction.member;
 
-		if (member.roles.cache.has('1001599815030931517')) {
-			member.roles.remove('1001599815030931517');
+		if (member.roles.cache.has('1001607584781963377')) {
+			member.roles.remove('1001607584781963377');
 
-			return interaction.reply({ content: `❌ Removed the <@&1001599815030931517> role from you `, ephemeral: true,})
+			return interaction.reply({ content: `❌ Removed the <@&1001607584781963377> role from you `, ephemeral: true,})
 		} else {
-			member.roles.add('1001599815030931517');
-			return interaction.reply({ content: ' ✅ Granted you the <@&1001599815030931517> role ', ephemeral: true,})
+			member.roles.add('1001607584781963377');
+			return interaction.reply({ content: ' ✅ Granted you the <@&1001607584781963377> role ', ephemeral: true,})
 		}
 	}
   });
@@ -180,13 +180,47 @@ client.on('interactionCreate', interaction => {
 
 		const member = interaction.member;
 
-		if (member.roles.cache.has('1001599780742500553')) {
-			member.roles.remove('1001599780742500553');
+		if (member.roles.cache.has('1001607887598145636')) {
+			member.roles.remove('1001607887598145636');
 
-			return interaction.reply({ content: `❌ Removed the <@&1001599780742500553> role from you `, ephemeral: true,})
+			return interaction.reply({ content: `❌ Removed the <@&1001607887598145636> role from you `, ephemeral: true,})
 		} else {
-			member.roles.add('1001599780742500553');
-			return interaction.reply({ content: ' ✅ Granted you the <@&1001599780742500553> role ', ephemeral: true,})
+			member.roles.add('1001607887598145636');
+			return interaction.reply({ content: ' ✅ Granted you the <@&1001607887598145636> role ', ephemeral: true,})
+		}
+	}
+})
+
+client.on('interactionCreate', interaction => {
+	if (!interaction.isButton()) return;
+	if (interaction.customId === "fourth") {
+
+		const member = interaction.member;
+
+		if (member.roles.cache.has('981347798467350539')) {
+			member.roles.remove('981347798467350539');
+
+			return interaction.reply({ content: `❌ Removed the <@&981347798467350539> role from you `, ephemeral: true,})
+		} else {
+			member.roles.add('981347798467350539');
+			return interaction.reply({ content: ' ✅ Granted you the <@&981347798467350539> role ', ephemeral: true,})
+		}
+	}
+})
+
+client.on('interactionCreate', interaction => {
+	if (!interaction.isButton()) return;
+	if (interaction.customId === "fifth") {
+
+		const member = interaction.member;
+
+		if (member.roles.cache.has('981347867774050365')) {
+			member.roles.remove('981347867774050365');
+
+			return interaction.reply({ content: `❌ Removed the <@&981347867774050365> role from you `, ephemeral: true,})
+		} else {
+			member.roles.add('981347867774050365');
+			return interaction.reply({ content: ' ✅ Granted you the <@&981347867774050365> role ', ephemeral: true,})
 		}
 	}
 })

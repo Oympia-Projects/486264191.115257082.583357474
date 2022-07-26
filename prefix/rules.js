@@ -16,15 +16,26 @@ module.exports = {
           new MessageButton()
 	        .setCustomId('second')
 	        .setLabel('Updates Ping')
-	        .setStyle('PRIMARY')
+	        .setStyle('SUCCESS')
 			.setEmoji('783635099626504202'),
 
           new MessageButton()
 	        .setCustomId('third')
 	        .setLabel('Giveaway Ping')
-	        .setStyle('SUCCESS')
+	        .setStyle('PRIMARY')
 			.setEmoji('851126325124530187'),
+
+		new MessageButton()
+	        .setCustomId('fourth')
+	        .setLabel('he/him')
+	        .setStyle('SECONDARY'),
+
+		new MessageButton()
+	        .setCustomId('fifth')
+	        .setLabel('she/her')
+	        .setStyle('SECONDARY'),
 			)
+				
 
 		const embed = new MessageEmbed()
 			.setColor(0x0099FF)
