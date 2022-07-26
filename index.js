@@ -64,10 +64,10 @@ client.on('message', async message => {
 
 	client.on('messageCreate', message =>{
 		if(!message.content.startsWith(process.env.prefix) || message.author.bot) return;
-	
+
 		const args = message.content.slice(process.env.prefix.length).split(/ +/);
 		const command = args.shift().toLowerCase();
-	
+
 		if(command === 'rules'){
 			client.commands.get('rules').execute(message, args);
 		}
@@ -110,7 +110,7 @@ client.on('ready', () => {
   }, 2000);
 
   client.user.setStatus('dnd');
-}); 
+});
 
 
 client.on('ready', () => {
@@ -132,11 +132,11 @@ client.on('interactionCreate', interaction => {
 		  .then(client.destroy())
 		  .then(client.login('OTg4MDkyMjk4MzYzNTM5NDc2.Gon1do.Wuq_UZ68BVaze6WDPrSiioAVI1VLif3oXneMy8'))
 		  .then(client.user.setStatus('dnd'));
-  
-  
+
+
 
 		client.destroy();
-		client.login(process.env.bot_token);	
+		client.login(process.env.bot_token);
 
 	}
 })
@@ -145,9 +145,9 @@ client.on('interactionCreate', interaction => {
 	if (!interaction.isButton()) return;
 	if (interaction.customId === "primary") {
 
-		const member = interaction.member; 
+		const member = interaction.member;
 
-		if (member.roles.cache.has('996476176728072342')) { 
+		if (member.roles.cache.has('996476176728072342')) {
 			member.roles.remove('996476176728072342');
 
 			return interaction.reply({ content: `❌ Removed the <@&996476176728072342> role from you `, ephemeral: true,})
@@ -156,12 +156,20 @@ client.on('interactionCreate', interaction => {
 			return interaction.reply({ content: ' ✅ Granted you the <@&996476176728072342> role ', ephemeral: true,})
 		}
 	} else if (interaction.customId === "second") {
-		return interaction.reply({ content: 'Something broke rolling back...'})
 
+		const member = interaction.member;
+
+    if(member.roles.cache.has('1001599815030931517')) {
+      member.roles.remove('1001599815030931517');
+
+      return interaction.reply({ content: `❌ Removed the <@&1001599815030931517> role from you `, ephemeral: true,})
+    } else {
+		return interaction.reply({ content: '✅ Granted you the <@&1001599815030931517> role '})
 	}
-}); 
+	} 
+});
 
-	
+
 
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()) return;
