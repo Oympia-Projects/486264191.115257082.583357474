@@ -98,7 +98,7 @@ for(const file of commandFiles2){
 const activities_list = [
   { type: 'STREAMING',  message: 'Cherry Sleep | /help'  },
   { type: 'WATCHING', message: 'VuDu Eat | /help' },
-  { type: 'LISTENING', message: 'Juice Wrld | /help' },
+  { type: 'LISTENING', message: 'Vudu Eat Again | /help' },
 ];
 
 
