@@ -9,15 +9,25 @@ module.exports = {
 			.addComponents(
                 new MessageButton()
 	        .setCustomId('primary')
-	        .setLabel('Primary')
-	        .setStyle('PRIMARY')
+	        .setLabel('Annoucements Ping')
+	        .setStyle('DANGER'),
+
+          new MessageButton()
+	        .setCustomId('second')
+	        .setLabel('Updates Ping')
+	        .setStyle('PRIMARY'),
+
+          new MessageButton()
+	        .setCustomId('third')
+	        .setLabel('Giveaway Ping')
+	        .setStyle('SUCCESS')
 			);
 
 
 		const embed = new MessageEmbed()
 			.setColor(0x0099FF)
-			.setAuthor('Choose your Roles!')
-      .addField(`ASDADS`, `SASAD`, false)
+			.setAuthor('Get yourself some Ping Roles')
+      .addDescription("You will be **ping** from all of these roles for there intended purpose")
         message.channel.send({ embeds: [embed], components: [row] })
 
 
