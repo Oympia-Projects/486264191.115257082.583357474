@@ -225,6 +225,23 @@ client.on('interactionCreate', interaction => {
 	}
 })
 
+client.on('interactionCreate', interaction => {
+	if (!interaction.isButton()) return;
+	if (interaction.customId === "seventh") {
+
+		const member = interaction.member;
+
+		if (member.roles.cache.has('981347896622452776')) {
+			member.roles.remove('981347896622452776');
+
+			return interaction.reply({ content: `❌ Removed the <@&981347896622452776> role from you `, ephemeral: true,})
+		} else {
+			member.roles.add('981347896622452776');
+			return interaction.reply({ content: ' ✅ Granted you the <@&981347896622452776> role ', ephemeral: true,})
+		}
+	}
+})
+
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()) return;
 
