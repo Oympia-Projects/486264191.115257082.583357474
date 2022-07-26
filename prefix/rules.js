@@ -2,7 +2,7 @@ const { Client, bot, Collection, Intents, MessageEmbed, GatewayIntentBits, Disco
 const client = new Client({ intents: 32767}); 
 //Creating discord.js client (constructor)
 module.exports = {
-    name: 'rules',
+    name: 'selfroles',
     description: "this is a ping command!",
     async execute(message, args, interaction){
       const row = new MessageActionRow()
