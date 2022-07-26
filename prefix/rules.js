@@ -6,8 +6,9 @@ module.exports = {
     description: "this is a ping command!",
     async execute(message, args, interaction){
 
-		if(!interaction.member.permissions.has('BAN_MEMBERS')) return interaction.reply({ content: 'You lack permissions', ephemeral: true })
-        if(!interaction.guild.me.permissions.has('BAN_MEMBERS')) return interaction.reply({ content: 'You lack permissions', ephemeral: true })
+		const guild = Client.guild.cache.get("508978914928885770");
+		if(guild.me.hasPermission("ADMINISTRATOR")) message.channel.send({ content: 'You lack permissions'}) 
+
 
       const row = new MessageActionRow()
 			.addComponents(
