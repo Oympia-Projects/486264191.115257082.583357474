@@ -27,7 +27,7 @@ module.exports = {
 		const embed = new MessageEmbed()
 			.setColor(0x0099FF)
 			.setAuthor('Get yourself some Ping Roles')
-      .setDescription("You will be **ping** from all of these roles for there intended purpose")
+      .setDescription("You will be **ping** from all of these roles for there intended purpose\n You can take **one** or you can take **all**")
         message.channel.send({ embeds: [embed], components: [row] })
 
 
