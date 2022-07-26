@@ -88,9 +88,9 @@ for (const file of commandFiles) {
 	client.commands.set(command.data.name, command);
 }
 
-const commandFiles2 = fs.readdirSync('./src/').filter(file => file.endsWith('.js'));
+const commandFiles2 = fs.readdirSync('./prefix/').filter(file => file.endsWith('.js'));
 for(const file of commandFiles2){
-    const command = require(`./src/${file}`);
+    const command = require(`./prefix/${file}`);
 
     client.commands.set(command.name, command);
 }
