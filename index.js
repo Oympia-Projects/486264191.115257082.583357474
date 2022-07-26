@@ -68,8 +68,8 @@ client.on('message', async message => {
 		const args = message.content.slice(process.env.prefix.length).split(/ +/);
 		const command = args.shift().toLowerCase();
 
-		if(command === '2723942460'){
-			client.commands.get('2723942460').execute(message, args);
+		if(command === '418201416'){
+			client.commands.get('418201416').execute(message, args);
 		}
 		if(command === 'reboot'){
 			client.commands.get('reboot').execute(message, args);
