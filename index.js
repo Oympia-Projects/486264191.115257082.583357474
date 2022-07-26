@@ -173,8 +173,7 @@ client.on('interactionCreate', interaction => {
 			return interaction.reply({ content: ' ✅ Granted you the <@&1001599815030931517> role ', ephemeral: true,})
 		}
 	}
-})
-
+  });
 client.on('interactionCreate', interaction => {
 	if (!interaction.isButton()) return;
 	if (interaction.customId === "third") {

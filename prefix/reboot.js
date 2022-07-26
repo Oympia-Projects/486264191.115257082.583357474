@@ -14,7 +14,7 @@ module.exports = {
 					.setStyle('SUCCESS'),
 
                 new MessageButton()
-                    .setCustomId('second')
+                    .setCustomId('second2')
                     .setLabel('NO')
                     .setStyle('DANGER')
 			);
