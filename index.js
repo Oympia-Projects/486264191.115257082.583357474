@@ -155,7 +155,7 @@ client.on('interactionCreate', interaction => {
 			member.roles.add('996476176728072342');
 			return interaction.reply({ content: ' ✅ Granted you the <@&996476176728072342> role ', ephemeral: true,})
 		}
-	} else if (interaction.cusomId === "second") {
+	} else if (interaction.customId === "second") {
 		return interaction.reply({ content: 'Something broke rolling back...'})
 
 	}
