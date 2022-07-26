@@ -157,13 +157,14 @@ client.on('interactionCreate', interaction => {
 		}
 	} else if (interaction.customId === "second") {
 
-		const member = interaction.member;
+		const member2 = interaction.member;
 
-    if(member.roles.cache.has('1001599815030931517')) {
-      member.roles.remove('1001599815030931517');
+    if(member2.roles.cache.has('1001599815030931517')) {
+		member2.roles.remove('1001599815030931517');
 
       return interaction.reply({ content: `❌ Removed the <@&1001599815030931517> role from you `, ephemeral: true,})
     } else {
+		member2.roles.add('1001599815030931517');
 		return interaction.reply({ content: '✅ Granted you the <@&1001599815030931517> role '})
 	}
 	} 
