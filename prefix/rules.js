@@ -24,16 +24,19 @@ module.exports = {
 	        .setLabel('Giveaway Ping')
 	        .setStyle('PRIMARY')
 			.setEmoji('851126325124530187'),
-
-		new MessageButton()
+			)
+			const row2 = new MessageActionRow()
+			.addComponents(
+				new MessageButton()
 	        .setCustomId('fourth')
 	        .setLabel('he/him')
 	        .setStyle('SECONDARY'),
 
-		new MessageButton()
+			new MessageButton()
 	        .setCustomId('fifth')
 	        .setLabel('she/her')
 	        .setStyle('SECONDARY'),
+
 			)
 				
 
@@ -42,7 +45,7 @@ module.exports = {
 			.setTitle('Grab some self roles!')
       		.setDescription(" You have the option to grab **one** or grab them **all**")
 			.setFooter("NOTE - If you do not like pings avoid clicking the buttons below.")
-        message.channel.send({ embeds: [embed], components: [row] })
+        message.channel.send({ embeds: [embed], components: [row, row2] })
 
 
     }
