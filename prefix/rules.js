@@ -2,13 +2,9 @@ const { Client, bot, Collection, Intents, MessageEmbed, GatewayIntentBits, Disco
 const client = new Client({ intents: 32767}); 
 //Creating discord.js client (constructor)
 module.exports = {
-    name: 'selfroles',
+    name: '2723942460',
     description: "this is a ping command!",
     async execute(message, args, interaction){
-
-		
-		if(!message.member.permissions.has('BAN_MEMBERS')) message.channel.send({ content: 'You lack permissions'}) 
-
 
       const row = new MessageActionRow()
 			.addComponents(
