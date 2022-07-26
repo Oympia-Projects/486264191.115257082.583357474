@@ -38,7 +38,9 @@ module.exports = {
 	        .setLabel('she/her')
 	        .setStyle('SECONDARY'),
 
-			setCustomId('seventh')
+
+				new MessageButton()
+			.setCustomId('seventh')
 	        .setLabel('they/them')
 	        .setStyle('SECONDARY'),
 
