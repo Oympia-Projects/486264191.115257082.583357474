@@ -41,7 +41,7 @@ module.exports = {
 				
 
 		const embed = new MessageEmbed()
-			.setColor(0x0099FF)
+			.setColor('00FFFF')
 			.setTitle('Grab some self roles!')
       		.setDescription(" You have the option to grab **one** or grab them **all**")
 			.setFooter("NOTE - If you do not like pings avoid clicking the buttons below.")
