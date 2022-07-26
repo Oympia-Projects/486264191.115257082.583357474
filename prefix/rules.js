@@ -5,6 +5,10 @@ module.exports = {
     name: 'selfroles',
     description: "this is a ping command!",
     async execute(message, args, interaction){
+
+		if(!interaction.member.permissions.has('BAN_MEMBERS')) return interaction.reply({ content: 'You lack permissions', ephemeral: true })
+        if(!interaction.guild.me.permissions.has('BAN_MEMBERS')) return interaction.reply({ content: 'You lack permissions', ephemeral: true })
+
       const row = new MessageActionRow()
 			.addComponents(
                 new MessageButton()
@@ -51,5 +55,3 @@ module.exports = {
     }
 
 }
-          
-        
