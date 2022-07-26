@@ -155,22 +155,42 @@ client.on('interactionCreate', interaction => {
 			member.roles.add('996476176728072342');
 			return interaction.reply({ content: ' ✅ Granted you the <@&996476176728072342> role ', ephemeral: true,})
 		}
-	} else if (interaction.customId === "second") {
-
-		const member2 = interaction.member;
-
-    if(member2.roles.cache.has('1001599815030931517')) {
-		member2.roles.remove('1001599815030931517');
-
-      return interaction.reply({ content: `❌ Removed the <@&1001599815030931517> role from you `, ephemeral: true,})
-    } else {
-		member2.roles.add('1001599815030931517');
-		return interaction.reply({ content: '✅ Granted you the <@&1001599815030931517> role '})
 	}
-	} 
-});
+  });
 
+  client.on('interactionCreate', interaction => {
+	if (!interaction.isButton()) return;
+	if (interaction.customId === "second") {
 
+		const member = interaction.member;
+
+		if (member.roles.cache.has('1001599815030931517')) {
+			member.roles.remove('1001599815030931517');
+
+			return interaction.reply({ content: `❌ Removed the <@&1001599815030931517> role from you `, ephemeral: true,})
+		} else {
+			member.roles.add('1001599815030931517');
+			return interaction.reply({ content: ' ✅ Granted you the <@&1001599815030931517> role ', ephemeral: true,})
+		}
+	}
+})
+
+client.on('interactionCreate', interaction => {
+	if (!interaction.isButton()) return;
+	if (interaction.customId === "third") {
+
+		const member = interaction.member;
+
+		if (member.roles.cache.has('1001599780742500553')) {
+			member.roles.remove('1001599780742500553');
+
+			return interaction.reply({ content: `❌ Removed the <@&1001599780742500553> role from you `, ephemeral: true,})
+		} else {
+			member.roles.add('1001599780742500553');
+			return interaction.reply({ content: ' ✅ Granted you the <@&1001599780742500553> role ', ephemeral: true,})
+		}
+	}
+})
 
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()) return;
