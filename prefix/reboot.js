@@ -22,16 +22,15 @@ module.exports = {
         const rEmbed2 = new MessageEmbed()
             .setColor('#00FFFF')
             .setAuthor('Restarting...')
-	
-        message.channel.send({ embeds: [rEmbed], components: [row]})
 
         
         const rEmbed = new MessageEmbed()
             .setColor('#00FFFF')
             .setAuthor('Are you sure you want to reboot the bot')
             .setDescription('Important commands and specifc events such as the authenticator will be unavaliable.')
-	
 	        .setFooter("Click Yes to Restart | Click No to Cancel")
+
+
         message.channel.send({ embeds: [rEmbed], components: [row]})
 
         const filter = i => i.customId === 'sonic';
