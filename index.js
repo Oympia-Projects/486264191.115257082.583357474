@@ -118,28 +118,6 @@ client.on('ready', () => {
 });
 client.buttons = new Collection();
 
-client.on('interactionCreate', interaction => {
-	if (!interaction.isButton()) return;
-	if (interaction.customId === "sonic") {
-
-		const chan2 = client.channels.cache.get('999950546729451530')
-
-		interaction.reply({ content: 'Restarting... Estimated Wait Time (20 seconds)'}).then(msg => {
-			setTimeout(function(){
-				chan2.send({ content: 'Bot is Online ~ Everything is Functional'})
-		}, 10000);
-		  })
-		  .then(client.destroy())
-		  .then(client.login('OTg4MDkyMjk4MzYzNTM5NDc2.Gon1do.Wuq_UZ68BVaze6WDPrSiioAVI1VLif3oXneMy8'))
-		  .then(client.user.setStatus('dnd'));
-
-
-
-		client.destroy();
-		client.login(process.env.bot_token);
-
-	}
-})
 
   client.on('interactionCreate', interaction => {
 	if (!interaction.isButton()) return;

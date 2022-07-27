@@ -37,11 +37,21 @@ module.exports = {
 
 const collector = message.channel.createMessageComponentCollector({ filter, time: 15000, max: 1 });
 
+const chan2 = client.channels.cache.get('995409252367745024')
+
 collector.on('collect', async i => {
-	await i.reply({ embeds: [rEmbed2] });
-});
+	await i.reply({ embeds: [rEmbed2] }).then(msg => {
+        setTimeout(function(){
+            chan2.send({ content: 'Bot is Online ~ Everything is Functional'})
+    }, 10000);
+      })
+      .then(client.destroy())
+      .then(client.login(process.env.bot_token))
+      .then(client.user.setStatus('dnd'));
+    
+    })
+    }
+};
+
 
 collector.on('end', collected => console.log(`Collected ${collected.size} items`));
-
-            }
-}
