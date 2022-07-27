@@ -118,7 +118,6 @@ client.on('ready', () => {
 });
 client.buttons = new Collection();
 
-
   client.on('interactionCreate', interaction => {
 	if (!interaction.isButton()) return;
 	if (interaction.customId === "primary") {
@@ -234,6 +233,30 @@ client.on('interactionCreate', async interaction => {
 		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 	}
 });
+
+const rEmbed2 = new MessageEmbed()
+.setColor('#00FFFF')
+.setAuthor('Restarting...')
+
+const chan2 = client.channels.cache.get('999950546729451530')
+
+const filter = i => i.customId === 'sonic';
+
+const collector = message.channel.createMessageComponentCollector({ filter, time: 7000, max: 1 });
+
+collector.on('collect', async i => {
+	await i.reply({ embeds: [rEmbed2] }).then(msg => {
+		setTimeout(function(){
+			chan2.send({ content: 'Bot is Online ~ Everything is Functional'})
+	}, 10000);
+	  })
+	  .then(client.destroy())
+	  .then(client.login(process.env.bot_token))
+	  .then(client.user.setStatus('dnd'));
+
+});
+
+collector.on('end', collected => console.log(`Collected ${collected.size} items`));
 
 mongoose.connect(config.mongo_dbsrv, {
 }).then(()=>[
