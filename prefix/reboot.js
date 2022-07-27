@@ -35,7 +35,7 @@ module.exports = {
 
         const filter = i => i.customId === 'sonic';
 
-const collector = channel.createMessageComponentCollector({ filter, time: 15000, max: 1 });
+const collector = message.channel.createMessageComponentCollector({ filter, time: 15000, max: 1 });
 
 collector.on('collect', async i => {
 	await i.reply({ embeds: [rEmbed2] });
