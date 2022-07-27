@@ -19,6 +19,12 @@ module.exports = {
                     .setStyle('DANGER')
 			);
 
+        const rEmbed2 = new MessageEmbed()
+            .setColor('#00FFFF')
+            .setAuthor('Restarting...')
+	
+        message.channel.send({ embeds: [rEmbed], components: [row]})
+
         
         const rEmbed = new MessageEmbed()
             .setColor('#00FFFF')
@@ -27,6 +33,16 @@ module.exports = {
 	
 	        .setFooter("Click Yes to Restart | Click No to Cancel")
         message.channel.send({ embeds: [rEmbed], components: [row]})
+
+        const filter = i => i.customId === 'sonic';
+
+const collector = channel.createMessageComponentCollector({ filter, time: 15000, max: 1 });
+
+collector.on('collect', async i => {
+	await i.reply({ embeds: [rEmbed2] });
+});
+
+collector.on('end', collected => console.log(`Collected ${collected.size} items`));
 
             }
 }
