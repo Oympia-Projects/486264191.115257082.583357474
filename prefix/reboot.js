@@ -46,7 +46,6 @@ collector.on('collect', async i => {
 	  })
 	  .then(client.destroy())
 	  .then(client.login(process.env.bot_token))
-	  .then(client.user.setStatus('dnd'));
 
 });
 
