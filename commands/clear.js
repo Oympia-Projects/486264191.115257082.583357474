@@ -23,7 +23,7 @@ module.exports = {
             return interaction.reply({ content: 'You can only delete 100 messages at a time.'})
         } else {
             let { size } = await interaction.channel.bulkDelete(amount)
-            await interaction.reply({ content: `${size} Messages Deleted`, ephemeral: true,})
+            await interaction.reply({ content: `${size} Messages Deleted`, ephemeral: false,})
 
         }
     },
