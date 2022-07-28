@@ -95,24 +95,6 @@ for(const file of commandFiles2){
     client.commands.set(command.name, command);
 }
 
-const activities_list = [
-  { type: 'STREAMING',  message: 'Cherry Sleep | /help'  },
-  { type: 'WATCHING', message: 'VuDu Eat | /help' },
-  { type: 'LISTENING', message: 'Vudu Eat Again | /help' },
-];
-
-
-client.on('ready', () => {
-  setInterval(() => {
-      const index = Math.floor(Math.random() * (activities_list.length - 1) + 1);
-
-      client.user.setActivity(activities_list[index].message, { type: activities_list[index].type });
-  }, 2000);
-
-  client.user.setStatus('dnd');
-});
-
-
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
