@@ -230,11 +230,10 @@ client.on('messageDelete', message => {
 
 	const logChannel = client.channels.cache.get('984160424251490334')
 	const messageDelete2 = new MessageEmbed()
-	.setColor('#0099ff')
+	.setColor('#00FFFF')
 	.setTitle('Message Deleted')
 	.addField('Author:', ` <@${message.author.id}> -*${message.author.tag}*`, true)
-	.addField('Date Recorded:', `${message.createdAt} -`, false)
-	.addField('Channel:', `<#${message.channel.id}> - *${message.channel.name}*`, false)
+	.addField('Channel:', `<#${message.channel.id}> - ** **`, false)
 	.addField('Message:', `\`${message.content}\``, false)
 	.setTimestamp()
 
