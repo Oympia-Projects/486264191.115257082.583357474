@@ -13,7 +13,7 @@ module.exports = {
 
     async execute(interaction, message, args, cmd, client, discord) {
 
-      const channel = message.guild.channels.cache.find(c => c.name === 'commands212');
+		var channel = client.channels.cache.get("982830831804510218")
           if(!channel) return message.channel.send('suggestions channel does not exist!');
 
         const embed = new MessageEmbed()
