@@ -7,7 +7,7 @@ module.exports = {
 		.setDescription(`Pong`),
 	async execute(interaction, message, client) {
 
-        const newPingEmbed = new Discord.MessageEmbed()
+        const newPingEmbed = new MessageEmbed()
         
         //.setTitle(`:stopwatch: The Ping Meter`) of choice
         .addFields(
