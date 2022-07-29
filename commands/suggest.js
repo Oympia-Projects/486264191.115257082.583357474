@@ -11,7 +11,7 @@ module.exports = {
 			.setRequired(true)),
 
 
-    async execute(interaction, message, args, cmd, client, discord) {
+    async execute(interaction) {
 
         const channel = message.guild.channels.cache.find(c => c.name === 'commands212');
         if(!channel) return message.channel.send('suggestions channel does not exist!');
