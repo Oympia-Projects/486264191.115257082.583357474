@@ -48,3 +48,12 @@
 9699689738
 4544910121
 6107181396
+
+   // "mongo_dbsrv": "mongodb+srv://Mufasaa:asjSgMLqCbP1h2X1@olympia.gwwld.mongodb.net/test",
+   const mongo_dbsrv = 'mongodb+srv://Mufasaa:asjSgMLqCbP1h2X1@olympia.gwwld.mongodb.net/test';
+   var mongoose = require('mongoose');
+
+   mongoose.connect(config.mongo_dbsrv, {
+}).then(()=>[
+	console.log('Database connection established')
+])

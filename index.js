@@ -3,14 +3,10 @@ const { Client, Discord, Intents,  Collection, Formatters, MessageActionRow, Mes
 require('dotenv').config()
 
 
-const mongo_dbsrv = 'mongodb+srv://Mufasaa:asjSgMLqCbP1h2X1@olympia.gwwld.mongodb.net/test';
-
 const fs = require('node:fs');
 const path = require('node:path');
 
 require("./deploy")
-
-var mongoose = require('mongoose');
 
 var client = new Client({ intents: 32767});
 
@@ -226,13 +222,5 @@ client.on('interactionCreate', async interaction => {
 		await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
 	}
 });
-
-mongoose.connect(config.mongo_dbsrv, {
-}).then(()=>[
-	console.log('Database connection established')
-])
-
-require("./logs")(client);
-
 
 client.login(process.env.bot_token);
