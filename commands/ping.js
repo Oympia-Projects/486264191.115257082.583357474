@@ -11,7 +11,7 @@ module.exports = {
         
         .setDescription("🏓Pong")
         .setColor('RANDOM')
-        .setFooter(`Requested by ${interaction.user}`, avatar)
+        .setFooter(`Requested by ${interaction.user}`)
         .setTimestamp()
     
 
