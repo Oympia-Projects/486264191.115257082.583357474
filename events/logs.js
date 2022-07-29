@@ -1,5 +1,8 @@
-module.exports = (client) => {
-    console.log('Logs have been loaded')
+module.exports = {
+    name: 'ready',
+    once: false,
+    async execute(client) {
+
         client.on("guildChannelTopicUpdate", (channel, oldTopic, newTopic) => {
     
             const LogChannel = client.channels.cache.get('984160424251490334'); // Replace with your channel id
@@ -525,3 +528,4 @@ module.exports = (client) => {
 
 
     }
+  }
