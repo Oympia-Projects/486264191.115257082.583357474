@@ -41,11 +41,6 @@ module.exports = {
         .setDescription(`Reason: \`${reason}\``)
         .setTimestamp()
 
-        
-        const bambed2 = new MessageEmbed()
-        .setColor("00FFFF")
-        .setDescription(`What is tommrow`)   
-
         await member.user.send({ embeds: [bambed]}).catch(err => {})
 
         member.ban({ reason })

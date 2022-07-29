@@ -223,4 +223,22 @@ client.on('interactionCreate', async interaction => {
 	}
 });
 
+const snipes = new Collection();
+
+client.on('messageDelete', message => {
+	snipes.set(message.channel.id, message)
+
+	const logChannel = client.channels.cache.get('984160424251490334')
+	const messageDelete2 = new MessageEmbed()
+	.setColor('#0099ff')
+	.setTitle('❌ Message Deleted')
+	.addField('Deleted By', ` ${message.author} - (${message.author.id})`, true)
+	.addField('Sent By', ` ${message.user} -`, false)
+	.addField('Message', `\`${message.content}\``, false)
+	.setTimestamp()
+
+
+	logChannel.send({ embeds: [messageDelete2]})
+})
+
 client.login(process.env.bot_token);
