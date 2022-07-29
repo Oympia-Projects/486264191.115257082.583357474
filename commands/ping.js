@@ -9,11 +9,7 @@ module.exports = {
 
         const newPingEmbed = new MessageEmbed()
         
-        //.setTitle(`:stopwatch: The Ping Meter`) of choice
-        .addFields(
-            {name: `:robot: The Bot's Latency`, value:`** **`},
-            {name: `:desktop: The API's Latency`, value: `**${Math.round(client.ws.ping)}**ms.`}
-        )
+        .setDescription("🏓Pong")
         .setColor('RANDOM')
         .setFooter(`Requested by ${interaction.user}`, avatar)
         .setTimestamp()
