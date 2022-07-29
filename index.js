@@ -232,4 +232,7 @@ mongoose.connect(config.mongo_dbsrv, {
 	console.log('Database connection established')
 ])
 
+require("./logs")(client);
+
+
 client.login(process.env.bot_token);
