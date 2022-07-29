@@ -232,7 +232,7 @@ client.on('messageDelete', message => {
 	const messageDelete2 = new MessageEmbed()
 	.setColor('#00FFFF')
 	.setTitle('Message Deleted')
-	.addField('Author:', ` <@${message.author.id}> -*${message.author.tag}*`, true)
+	.addField('Message Sent By:', ` <@${message.author.id}> -*${message.author.tag}*`, true)
 	.addField('Channel:', `<#${message.channel.id}> - ** **`, false)
 	.addField('Message:', `\`${message.content}\``, false)
 	.setTimestamp()
