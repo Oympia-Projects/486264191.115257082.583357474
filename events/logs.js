@@ -1,3 +1,5 @@
+const Collection = require("discord.js")
+
 const snipes = new Collection();
 
 module.exports = {
