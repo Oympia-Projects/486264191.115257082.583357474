@@ -4,7 +4,7 @@ const { Discord, MessageEmbed } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('suggest')
-	.setDescription('Replies with your input!')
+	.setDescription('Replies with your suggestion!')
 	.addStringOption(option =>
 		option.setName('suggest')
 			.setDescription(`Can suggest and idea to the suggestion's channel`)
@@ -13,8 +13,8 @@ module.exports = {
 
     async execute(interaction, message, args, cmd, client, discord) {
 
-		var channel = client.channels.cache.get("982830831804510218")
-          if(!channel) return message.channel.send('suggestions channel does not exist!');
+        const channel = message.guild.channels.cache.find(c => c.name === 'commands212');
+        if(!channel) return message.channel.send('suggestions channel does not exist!');
 
         const embed = new MessageEmbed()
         .setColor('00FFFF')
