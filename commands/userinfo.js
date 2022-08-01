@@ -15,7 +15,7 @@ module.exports = {
         const embed = new MessageEmbed()
         .setColor('00FFFF')
         .setAuthor({ name: `${user.tag}`, iconURL: `${user.displayAvatarURL({ dynamic: true})}`})
-        .addField('**Joined: **', `${moment(user.joinedAt).format("dddd, MMMM Do YYYY")}`, true)
+        .addField('**Joined: **', `${moment.utc(user.joinedAt).format('DD/MM/YY')}`, true)
         .addField(`Account Created:`, `${moment.utc(user.createdAt).format("dddd, MMMM Do YYYY")}`, true)
 	.addField('Is a Bot:', `\`${user.bot}\``, true)
 	 .addField('UserID:', `\`${user.id}\``, true)
