@@ -19,6 +19,7 @@ module.exports = {
         .addField(`Account Created:`, `${moment.utc(user.createdAt).format("dddd, MMMM Do YYYY")}`, true)
 	.addField('Is a Bot:', `\`${user.bot}\``, true)
 	 .addField('UserID:', `\`${user.id}\``, true)
+	 .addField('Roles:', user.roles.map(r => `${r}`).join(' | '), true)
 	.setThumbnail(`${user.displayAvatarURL({ dynamic: true})}`)
         .setFooter('© 2022 Olympia')
 
