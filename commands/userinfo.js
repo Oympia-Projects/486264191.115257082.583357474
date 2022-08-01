@@ -17,10 +17,9 @@ module.exports = {
         .setAuthor({ name: `${user.tag}`, iconURL: `${user.displayAvatarURL({ dynamic: true})}`})
         .addField('**Joined: **', `${moment(user.joinedAt).format("dddd, MMMM Do YYYY")}`, true)
         .addField(`Account Created:`, `${moment.utc(user.createdAt).format("dddd, MMMM Do YYYY")}`, true)
-				.addField('Is a Bot:', `\`${user.bot}\``, true)
-	 	    .addField('UserID:', `\`${user.id}\``, true)
-				.setThumbnail(`${user.displayAvatarURL({ dynamic: true})}`)
-				.addField("Roles:", `${user.roles.fetch.map(r => r).join(' ').replace("@everyone", " ")}`)
+	.addField('Is a Bot:', `\`${user.bot}\``, true)
+	 .addField('UserID:', `\`${user.id}\``, true)
+	.setThumbnail(`${user.displayAvatarURL({ dynamic: true})}`)
         .setFooter('© 2022 Olympia')
 
         if (user) return interaction.reply({ embeds: [embed] })
