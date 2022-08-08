@@ -8,7 +8,7 @@ module.exports = {
       //Set the Presence of the bot user
       client.user.setActivity("Olympia-MC", {
         type: "STREAMING",
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
+        url: "https://www.youtube.com/watch?v=O91DT1pR1ew"
       });
 
   }
