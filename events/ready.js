@@ -6,7 +6,7 @@ module.exports = {
       console.log(`${client.user.username} is online on ${client.guilds.cache.size} servers!`);
 
       //Set the Presence of the bot user
-      client.user.setActivity("Olympia-MC", {
+      client.user.setActivity("GTA VI", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=O91DT1pR1ew"
       });
