@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { Client, MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
+const { Client, ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } = require('discord.js');
 
 const client = new Client({ intents: 32767 });
 
@@ -9,17 +9,17 @@ module.exports = {
         .setDescription(`Provides role selection options.`),
 
     async execute(interaction) {
-        const row = new MessageActionRow()
+        const row = new ActionRowBuilder()
             .addComponents(
-                new MessageButton()
+                new ButtonBuilder()
                     .setCustomId('primary')
                     .setLabel('Announcements Ping')
-                    .setStyle('DANGER')
+                    .setStyle(ButtonStyle.Danger)
                     .setEmoji('873139803846242314'),
-                // ... (other buttons)
+
             );
 
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setColor('#00FFFF')
             .setTitle('Grab some self roles!')
             .setDescription("You have the option to grab **one** or grab them **all**");
