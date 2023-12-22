@@ -1,53 +1,59 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { Client, Discord, MessageEmbed } = require("discord.js");
+const { Client, Discord, EmbedBuilder, Permissions } = require("discord.js");
 
-var client = new Client({ intents: 32767});
+var client = new Client({ intents: 32767 });
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('ban')
-        .setDescription(`ban's a user/member from the server temporarily or permanently.`)
-        .addUserOption((option) => option.setName('user').setDescription('The person who you want to ban').setRequired(true))
-    .addStringOption(option => option.setName('reason').setDescription('Reason to ban member').setRequired(true)),
+        .setDescription(`Ban a user/member from the server temporarily or permanently.`)
+        .addUserOption((option) => option.setName('user').setDescription('The person you want to ban').setRequired(true))
+        .addStringOption(option => option.setName('reason').setDescription('Reason for the ban').setRequired(true)),
 
-    async execute(interaction, client, message) {
-
+    async execute(interaction) {
         const user = interaction.options.getUser('user');
- 
-        const exampleEmbed = new MessageEmbed()
-        .setColor('#00FFFF')
-        .setDescription(`You lack the following **permissions** | \`BAN_MEMBERS\``)
+        const reason = interaction.options.getString('reason');
 
-        if(!interaction.member.permissions.has("BAN_MEMBERS")) return interaction.reply({ embeds: [exampleEmbed], ephemeral: true })
+        // Check if the user has the BAN_MEMBERS permission
+        if (!interaction.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS)) {
+            const exampleEmbed = new EmbedBuilder()
+                .setColor('#00FFFF')
+                .setDescription(`You lack the following **permissions** | \`BAN_MEMBERS\``);
 
-        const member = interaction.guild.members.cache.get(user.id) || await interaction.guild.members.fetch(user.id).catch(err => {})
+            return interaction.reply({ embeds: [exampleEmbed], ephemeral: true });
+        }
 
-        const reason = interaction.options.getString('reason')
+        const member = interaction.guild.members.cache.get(user.id) || await interaction.guild.members.fetch(user.id).catch(() => null);
 
-        if(!member.bannable || member.user.id === user) 
-        return interaction.reply("Check Console");
-        
-        if(interaction.member.roles.highest.position <= member.roles.highest.position) 
-        return interaction.reply('Discord Hierarchy is a thing Check Console.')
-        
-        const embed = new MessageEmbed()
-        .setColor("00FFFF")
-        .setDescription(`${member.user} was banned | \`${member.user.id}\``)   
+        if (!member || !member.bannable || member.user.id === user.id) {
+            return interaction.reply("There was an issue with banning the user. Check console.");
+        }
 
-        const bambed = new MessageEmbed()
-        .setAuthor('Olympia Discord')
-        .setColor("00ffff")
-        .setTitle(`You were banned by: \`${interaction.user.tag}\``)
-        .setDescription(`Reason: \`${reason}\``)
-        .setTimestamp()
+        if (interaction.member.roles.highest.position <= member.roles.highest.position) {
+            return interaction.reply('You cannot ban this user due to Discord hierarchy.');
+        }
 
-        await member.user.send({ embeds: [bambed]}).catch(err => {})
+        const embed = new EmbedBuilder()
+            .setColor("00FFFF")
+            .setDescription(`${member.user} was banned | \`${member.user.id}\``);
 
-        member.ban({ reason })
+        const bambed = new EmbedBuilder()
+            .setAuthor('Olympia Discord')
+            .setColor("00FFFF")
+            .setTitle(`You were banned by: \`${interaction.user.tag}\``)
+            .setDescription(`Reason: \`${reason}\``)
+            .setTimestamp();
 
-        return interaction.reply({ embeds: [ embed ]}).then(() => console.log(`Banned ${member.displayName}`))
-        .catch(console.error);
+        // Attempt to DM the user about the ban
+        await member.user.send({ embeds: [bambed] }).catch(() => {}); // Silence the catch for now
 
+        // Ban the user
+        await member.ban({ reason }).catch(() => {
+            return interaction.reply("There was an error while trying to ban the user.");
+        });
+
+        return interaction.reply({ embeds: [embed] }).then(() => {
+            console.log(`Banned ${member.displayName}`);
+        }).catch(console.error);
     },
-    
 };
