@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -11,11 +11,15 @@ module.exports = {
                 if (roll <= 100) {
             }
 
-            const exampleEmbed = new MessageEmbed()
+            const exampleEmbed = new EmbedBuilder()
             .setColor('#00FFFF')
-            .setDescription(`🎲 ${interaction.user} **Rolled** 🎲 `)
-            .addField(`**${roll}**`, '** **', true)
-        interaction.reply({embeds: [exampleEmbed]})
+            .setDescription(`🎲 ${interaction.user} **Rolled** 🎲`)
+            .addFieldss(
+                { name: 'Roll Result', value: `**${roll}**` } // Assuming 'roll' contains the value you want to display.
+            );
+        
+        interaction.reply({ embeds: [exampleEmbed] });
+        
     }
         
 }

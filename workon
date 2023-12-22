@@ -1,0 +1,49 @@
+client.on('guildMemberAdd', guildMember => {
+    // Find the role by name
+    let welcomeRole = guildMember.guild.roles.cache.find(role => role.name === 'Blue');
+
+    // Check if the role exists
+    if (!welcomeRole) {
+        console.error("The 'New Member' role does not exist in the server.");
+        return; // Exit the function if the role doesn't exist
+    }
+
+    // Add the role to the member
+    guildMember.roles.add(welcomeRole)
+    .catch(error => {
+        console.error(`Failed to add role to member: ${error}`);
+    });
+});
+
+
+const eventFiles = fs.readdirSync('./events/').filter(file => file.endsWith('.js'));
+
+for (const file of eventFiles) {
+    const event = require(`./events/${file}`);
+
+    if (event.once) {
+        client.once(event.name, (...args) => event.execute(...args, client));
+    } else {
+        client.on(event.name, (...args) => event.execute(...args, client));
+    }
+}
+
+
+
+client.commands = new Collection();
+const commandsPath = path.join(__dirname, 'commands');
+const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+	const filePath = path.join(commandsPath, file);
+	const command = require(filePath);
+	client.commands.set(command.data.name, command);
+}
+
+const commandFiles2 = fs.readdirSync('./prefix/').filter(file => file.endsWith('.js'));
+for(const file of commandFiles2){
+    const command = require(`./prefix/${file}`);
+
+    client.commands.set(command.name, command);
+}
+
